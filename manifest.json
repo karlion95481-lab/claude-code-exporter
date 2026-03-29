@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Claude Code Session Exporter",
+  "version": "0.1.0",
+  "description": "Export Claude Code web session transcripts to Markdown.",
+  "permissions": ["activeTab", "scripting", "storage", "clipboardWrite"],
+  "host_permissions": ["https://claude.ai/code/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://claude.ai/code/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Export Claude Code Session"
+  }
+}

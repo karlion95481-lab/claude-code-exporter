@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Claude Code Exporter</h1>
+
+    <!-- Status -->
+    <div id="status-bar" class="status-bar">
+      <span id="status-dot" class="dot dot-gray"></span>
+      <span id="status-text">Checking...</span>
+    </div>
+
+    <!-- Export Panel -->
+    <div id="export-panel" class="panel">
+      <div class="option-group">
+        <label>
+          <input type="checkbox" id="opt-tool-calls" checked>
+          Include tool calls
+        </label>
+        <label>
+          <input type="checkbox" id="opt-collapse" checked>
+          Collapse tool calls
+        </label>
+        <label>
+          <input type="checkbox" id="opt-system">
+          Include system messages
+        </label>
+      </div>
+
+      <div class="filename-preview" id="filename-preview"></div>
+
+      <button id="btn-export" class="btn btn-primary" disabled>
+        Export Markdown
+      </button>
+    </div>
+
+    <!-- Debug Toggle -->
+    <button id="btn-toggle-debug" class="btn btn-ghost">
+      Debug Mode
+    </button>
+
+    <!-- Debug Panel -->
+    <div id="debug-panel" class="panel hidden">
+      <div class="debug-actions">
+        <button id="btn-scan" class="btn btn-secondary">Scan Page</button>
+        <button id="btn-dump" class="btn btn-secondary">Dump HTML</button>
+      </div>
+
+      <div class="selector-test">
+        <input type="text" id="input-selector" placeholder="CSS selector to test...">
+        <button id="btn-test-selector" class="btn btn-small">Test</button>
+      </div>
+
+      <pre id="debug-output" class="debug-output"></pre>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
